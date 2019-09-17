@@ -6,7 +6,7 @@ class UserResource(Resource):
         "username",
         type=str,
         required=True,
-        help="This fiueld cannot be blank"
+        help="This field cannot be blank"
     )
     parser.add_argument(
         "password",
@@ -16,7 +16,7 @@ class UserResource(Resource):
     )
 
     def post(self):
-        data = UserRegister.parser.parse_args()
+        data = UserResource.parser.parse_args()
         if UserModel.find_by_username(data['username']):
             return {
                 "message": "User already Exists"
